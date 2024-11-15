@@ -1,0 +1,43 @@
+.dashboard-container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.top-section {
+  margin-bottom: 20px;
+}
+
+.bottom-sections {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.bottom-left,
+.bottom-right {
+  width: 48%; /* Each section takes up half width */
+  box-sizing: border-box;
+  padding: 15px;
+}
+
+@media only screen and (max-width: 768px) {
+  .bottom-left,
+  .bottom-right {
+    width: 100%; /* Full width on smaller screens */
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .dashboard-container {
+    padding: 10px;
+  }
+
+  .top-section {
+    margin-bottom: 15px;
+  }
+
+  .bottom-sections {
+    display: block; /* Stack sections vertically on very small screens */
+  }
+}

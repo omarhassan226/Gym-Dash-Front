@@ -1,0 +1,174 @@
+<div>
+  <div class="row">
+    <!-- Chart 1 -->
+    <div class="col-md-4 p-4">
+      <div
+        id="chart-spark1"
+        class="rounded-xl shadow-lg bg-white p-6 hover:shadow-2xl transition-shadow"
+      >
+        <apx-chart
+          #chartspark1
+          [series]="chartAreaSparkline1Options.series"
+          [chart]="commonAreaSparlineOptions.chart"
+          [stroke]="commonAreaSparlineOptions.stroke"
+          [yaxis]="commonAreaSparlineOptions.yaxis"
+          [fill]="commonAreaSparlineOptions.fill"
+          [colors]="chartAreaSparkline1Options.colors"
+          [title]="chartAreaSparkline1Options.title"
+          [subtitle]="chartAreaSparkline1Options.subtitle"
+        ></apx-chart>
+      </div>
+    </div>
+
+    <!-- Chart 2 -->
+    <div class="col-md-4 p-4">
+      <div
+        id="chart-spark2"
+        class="rounded-xl shadow-lg bg-white p-6 hover:shadow-2xl transition-shadow"
+      >
+        <apx-chart
+          #chartspark2
+          [series]="chartAreaSparkline2Options.series"
+          [chart]="commonAreaSparlineOptions.chart"
+          [stroke]="commonAreaSparlineOptions.stroke"
+          [yaxis]="commonAreaSparlineOptions.yaxis"
+          [fill]="commonAreaSparlineOptions.fill"
+          [colors]="chartAreaSparkline2Options.colors"
+          [title]="chartAreaSparkline2Options.title"
+          [subtitle]="chartAreaSparkline2Options.subtitle"
+        ></apx-chart>
+      </div>
+    </div>
+
+    <!-- Chart 3 -->
+    <div class="col-md-4 p-4">
+      <div
+        id="chart-spark3"
+        class="rounded-xl shadow-lg bg-white p-6 hover:shadow-2xl transition-shadow"
+      >
+        <apx-chart
+          #chartspark3
+          [series]="chartAreaSparkline3Options.series"
+          [chart]="commonAreaSparlineOptions.chart"
+          [stroke]="commonAreaSparlineOptions.stroke"
+          [yaxis]="commonAreaSparlineOptions.yaxis"
+          [fill]="commonAreaSparlineOptions.fill"
+          [title]="chartAreaSparkline3Options.title"
+          [subtitle]="chartAreaSparkline3Options.subtitle"
+        ></apx-chart>
+      </div>
+    </div>
+  </div>
+
+  <!-- Table -->
+  <div class="row mt-8">
+    <table
+      class="table-auto w-full text-center shadow-lg rounded-lg overflow-hidden"
+    >
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="py-4 px-6 text-lg text-gray-700">Total Value</th>
+          <th class="py-4 px-6 text-lg text-gray-700">
+            Percentage of Portfolio
+          </th>
+          <th class="py-4 px-6 text-lg text-gray-700">Last 10 days</th>
+          <th class="py-4 px-6 text-lg text-gray-700">Volume</th>
+        </tr>
+      </thead>
+      <tbody class="bg-white">
+        <tr class="border-t">
+          <td class="py-4 px-6">$32,554</td>
+          <td class="py-4 px-6">15%</td>
+          <td class="py-4 px-6">
+            <div id="chart-1">
+              <apx-chart
+                [series]="chartLineSparkline1Options.series"
+                [chart]="commonLineSparklineOptions.chart"
+                [tooltip]="commonLineSparklineOptions.tooltip"
+              ></apx-chart>
+            </div>
+          </td>
+          <td class="py-4 px-6">
+            <div id="chart-5">
+              <apx-chart
+                [series]="chartBarSparkline1Options.series"
+                [chart]="commonBarSparklineOptions.chart"
+                [plotOptions]="commonBarSparklineOptions.plotOptions"
+                [tooltip]="commonBarSparklineOptions.tooltip"
+              ></apx-chart>
+            </div>
+          </td>
+        </tr>
+        <tr class="border-t">
+          <td class="py-4 px-6">$23,533</td>
+          <td class="py-4 px-6">7%</td>
+          <td class="py-4 px-6">
+            <div id="chart-2">
+              <apx-chart
+                [series]="chartLineSparkline2Options.series"
+                [chart]="commonLineSparklineOptions.chart"
+                [tooltip]="commonLineSparklineOptions.tooltip"
+              ></apx-chart>
+            </div>
+          </td>
+          <td class="py-4 px-6">
+            <div id="chart-6">
+              <apx-chart
+                [series]="chartBarSparkline2Options.series"
+                [chart]="commonBarSparklineOptions.chart"
+                [plotOptions]="commonBarSparklineOptions.plotOptions"
+                [tooltip]="commonBarSparklineOptions.tooltip"
+              ></apx-chart>
+            </div>
+          </td>
+        </tr>
+        <tr class="border-t">
+          <td class="py-4 px-6">$54,276</td>
+          <td class="py-4 px-6">9%</td>
+          <td class="py-4 px-6">
+            <div id="chart-3">
+              <apx-chart
+                [series]="chartLineSparkline3Options.series"
+                [chart]="commonLineSparklineOptions.chart"
+                [tooltip]="commonLineSparklineOptions.tooltip"
+              ></apx-chart>
+            </div>
+          </td>
+          <td class="py-4 px-6">
+            <div id="chart-7">
+              <apx-chart
+                [series]="chartBarSparkline3Options.series"
+                [chart]="commonBarSparklineOptions.chart"
+                [plotOptions]="commonBarSparklineOptions.plotOptions"
+                [tooltip]="commonBarSparklineOptions.tooltip"
+              ></apx-chart>
+            </div>
+          </td>
+        </tr>
+        <tr class="border-t">
+          <td class="py-4 px-6">$11,533</td>
+          <td class="py-4 px-6">2%</td>
+          <td class="py-4 px-6">
+            <div id="chart-4">
+              <apx-chart
+                [series]="chartLineSparkline4Options.series"
+                [chart]="commonLineSparklineOptions.chart"
+                [tooltip]="commonLineSparklineOptions.tooltip"
+              ></apx-chart>
+            </div>
+          </td>
+          <td class="py-4 px-6">
+            <div id="chart-8">
+              <apx-chart
+                [series]="chartBarSparkline4Options.series"
+                [chart]="commonBarSparklineOptions.chart"
+                [plotOptions]="commonBarSparklineOptions.plotOptions"
+                [tooltip]="commonBarSparklineOptions.tooltip"
+              ></apx-chart>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
