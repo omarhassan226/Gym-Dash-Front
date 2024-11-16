@@ -18,6 +18,8 @@
     "@angular/platform-browser": "^18.2.0",
     "@angular/platform-browser-dynamic": "^18.2.0",
     "@angular/router": "^18.2.0",
+    "@syncfusion/ej2-angular-lists": "^27.2.2",
+    "@syncfusion/ej2-angular-navigations": "^27.2.2",
     "apexcharts": "^3.54.1",
     "ng-apexcharts": "^1.12.0",
     "rxjs": "~7.8.0",

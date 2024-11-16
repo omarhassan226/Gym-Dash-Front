@@ -6,11 +6,11 @@
   flex-wrap: wrap;
   gap: 20px;
   margin-bottom: 20px;
-  padding: 20px;
 }
 
 .col-md-4 {
   width: 32%;
+  padding: 10px;
   box-sizing: border-box;
 }
 
