@@ -14,6 +14,9 @@ import {
 } from '@syncfusion/ej2-angular-navigations';
 import { ListViewModule } from '@syncfusion/ej2-angular-lists';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { ColumnChartsComponent } from './components/column-charts/column-charts.component';
+import { CircleChartComponent } from './components/circle-chart/circle-chart.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +25,9 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     TreeMapChartComponent,
     SparkLinesComponent,
     SidebarComponent,
+    NavbarComponent,
+    ColumnChartsComponent,
+    CircleChartComponent,
   ],
   imports: [
     BrowserModule,

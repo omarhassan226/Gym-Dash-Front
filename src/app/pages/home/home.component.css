@@ -44,17 +44,20 @@ app-sidebar.closed {
 
 .top-section {
   margin-bottom: 20px;
+  padding: 0 10px;
 }
 
 .bottom-sections {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 0 5px;
 }
 
 .bottom-left,
 .bottom-right {
-  width: 48%;
+  width: 49%;
   box-sizing: border-box;
   padding: 15px;
 }
@@ -72,7 +75,7 @@ app-sidebar.closed {
   }
 
   .top-section {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
   }
 
   .bottom-sections {

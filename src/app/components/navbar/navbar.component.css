@@ -1,0 +1,43 @@
+.navLinks {
+  color: white;
+}
+
+.navLinks:hover {
+  color: #a1a1aa;
+}
+
+nav {
+  position: relative;
+  z-index: 1000;
+}
+
+.sidebar.open {
+  margin-left: 250px;
+}
+
+.position {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+section {
+  scroll-margin-top: 80px;
+}
+
+@media (max-width: 765px) {
+  .transition-max-height {
+    transition: max-height 0.3s ease-in-out;
+  }
+  .small {
+    padding: 0 2rem;
+  }
+
+  .max-h-0 {
+    max-height: 0;
+  }
+
+  .max-h-screen {
+    max-height: 500px;
+  }
+}
