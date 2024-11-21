@@ -8,7 +8,11 @@
           (click)="globalService.toggleSidebar1()"
           aria-label="Toggle Sidebar"
         >
-          Toggle Sidebar
+          <img
+            class="toggleIcon"
+            [src]="isSidebarOpen ? 'toggleLeft.svg' : 'toggleRight.svg'"
+            alt="Sidebar Toggle"
+          />
         </button>
         <app-spark-lines></app-spark-lines>
       </div>

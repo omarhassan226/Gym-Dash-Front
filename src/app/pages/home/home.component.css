@@ -20,6 +20,11 @@ app-sidebar.closed {
   margin-left: 250px;
 }
 
+.toggleIcon {
+  width: 100%;
+  color: black;
+}
+
 @media only screen and (max-width: 768px) {
   app-sidebar.closed {
     transform: translateX(-200px);

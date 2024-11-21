@@ -1,0 +1,45 @@
+.login-card {
+  animation: fadeIn 0.6s ease-out;
+  transform-origin: center;
+}
+
+.form-input {
+  transition: all 0.3s ease;
+}
+
+.form-input:focus {
+  transform: translateY(-2px);
+}
+
+.login-button {
+  transition: all 0.3s ease;
+  background-color: black;
+}
+
+.login-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.otherSubmit {
+  transition: transform 0.2s ease;
+  background-color: black;
+  padding: 5px;
+  color: white;
+  border-radius: 5px;
+}
+
+.otherSubmit:hover {
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

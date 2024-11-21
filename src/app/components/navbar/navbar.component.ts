@@ -39,7 +39,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   globalService = inject(GlobalesService);
   public isSidebarOpen = true;
   // authService = inject(AuthService);
-  router = inject(Router);
+  // router = inject(Router);
 
   ngOnInit() {
     setTimeout(() => {
@@ -88,7 +88,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     // this.authService.signOut();
     localStorage.removeItem('token');
     this.isOpen = false;
-    this.router.navigate(['/login']);
+    // this.router.navigate(['/login']);
   }
 
   // Fetch user data from the backend

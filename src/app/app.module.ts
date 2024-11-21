@@ -17,6 +17,10 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ColumnChartsComponent } from './components/column-charts/column-charts.component';
 import { CircleChartComponent } from './components/circle-chart/circle-chart.component';
+import { LoginComponent } from './pages/login/login.component';
+import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SignupComponent } from './pages/signup/signup.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,15 +32,19 @@ import { CircleChartComponent } from './components/circle-chart/circle-chart.com
     NavbarComponent,
     ColumnChartsComponent,
     CircleChartComponent,
+    LoginComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgApexchartsModule,
+    BrowserAnimationsModule,
     CommonModule,
     ToolbarModule,
     SidebarModule,
     ListViewModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
