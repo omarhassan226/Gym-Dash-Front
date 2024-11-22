@@ -37,7 +37,7 @@ app-sidebar.closed {
   }
 }
 
-.dashboard-container {
+.layout {
   flex: 1;
   max-width: 100%;
   padding: 20px;
@@ -49,43 +49,24 @@ app-sidebar.closed {
   margin-left: 0;
 }
 
-.top-section {
-  margin-bottom: 20px;
-  padding: 0 10px;
+.sidebar-open {
+  margin-left: 250px;
 }
 
-.bottom-sections {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 10px;
-  padding: 0 5px;
+.sidebar-closed {
+  margin-left: 0;
 }
 
-.bottom-left,
-.bottom-right {
-  width: 49%;
-  box-sizing: border-box;
-  padding: 15px;
-}
+@media (max-width: 768px) {
+  .sidebar-open {
+    margin-left: 0;
+  }
 
-@media only screen and (max-width: 768px) {
-  .bottom-left,
-  .bottom-right {
-    width: 100%;
+  .sidebar-closed {
+    margin-left: 0;
   }
 }
 
-@media only screen and (max-width: 480px) {
-  .dashboard-container {
-    padding: 10px;
-  }
-
-  .top-section {
-    margin-bottom: 10px;
-  }
-
-  .bottom-sections {
-    display: block;
-  }
+.toggle-button {
+  padding: 16px 26px 0 26px;
 }

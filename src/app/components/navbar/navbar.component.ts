@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { GlobalesService } from '../../services/globales.service';
 import { AuthService } from '../../services/auth.service';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 export interface User {
   name: string;
@@ -32,13 +33,16 @@ export class NavbarComponent implements OnInit, OnDestroy {
   isMobileMenuOpen = false;
   showNavbar = false;
   isLoggedIn = false;
+  isSidebarOpen: boolean = true;
+  isSmallScreen: boolean = false;
   token = localStorage.getItem('token');
-
   userData: User = { name: '', email: '', phone: '' };
   private subscription!: Subscription;
 
-  globalService = inject(GlobalesService);
-  public isSidebarOpen = true;
+  constructor(
+    public globalService: GlobalesService,
+    private breakPointObserver: BreakpointObserver
+  ) {}
   authService = inject(AuthService);
   router = inject(Router);
 
@@ -50,12 +54,19 @@ export class NavbarComponent implements OnInit, OnDestroy {
       });
       if (this.isLoggedIn) {
         this.showNavbar = true;
-        this.globalService.sidebarOpen$.subscribe((state) => {
-          this.isSidebarOpen = state;
-        });
         this.getUser();
       }
     }, 0);
+
+    this.globalService.sidebarOpen$.subscribe((state) => {
+      this.isSidebarOpen = state;
+    });
+
+    this.breakPointObserver
+      .observe([Breakpoints.XSmall, Breakpoints.Small]) // Small screens (like mobile)
+      .subscribe((state) => {
+        this.isSmallScreen = state.matches;
+      });
   }
 
   checkLoginStatus() {

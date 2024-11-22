@@ -1,6 +1,10 @@
 <nav
   *ngIf="showNavbar"
   class="bg-white border-gray-200 dark:bg-black position"
+  [ngClass]="{
+    'sidebar-open': isSidebarOpen && !isSmallScreen,
+    'sidebar-closed': !isSidebarOpen || isSmallScreen
+  }"
   [@slideIn]
 >
   <div class="flex flex-wrap items-center justify-between mx-auto px-16 small">

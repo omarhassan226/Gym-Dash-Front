@@ -9,10 +9,7 @@
 nav {
   position: relative;
   z-index: 1000;
-}
-
-.sidebar.open {
-  margin-left: 250px;
+  transition: margin-left 0.3s ease-in-out;
 }
 
 .position {
@@ -39,5 +36,24 @@ section {
 
   .max-h-screen {
     max-height: 500px;
+  }
+}
+
+/* Default styles for larger screens */
+.sidebar-open {
+  margin-left: 250px;
+}
+
+.sidebar-closed {
+  margin-left: 0;
+}
+
+@media (max-width: 768px) {
+  .sidebar-open {
+    margin-left: 0;
+  }
+
+  .sidebar-closed {
+    margin-left: 0;
   }
 }

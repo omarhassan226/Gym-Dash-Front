@@ -22,6 +22,8 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SignupComponent } from './pages/signup/signup.component';
 import { HttpClientModule } from '@angular/common/http';
+import { UsersPageComponent } from './pages/users-page/users-page.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +37,8 @@ import { HttpClientModule } from '@angular/common/http';
     CircleChartComponent,
     LoginComponent,
     SignupComponent,
+    UsersPageComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
