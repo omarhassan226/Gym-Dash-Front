@@ -1,35 +1,44 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { trigger, transition, style, animate } from '@angular/animations';
+import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.css',
-  animations: [
-    trigger('fadeInOut', [
-      transition(':enter', [
-        style({ opacity: 0 }),
-        animate('0.6s ease-out', style({ opacity: 1 })),
-      ]),
-      transition(':leave', [animate('0.6s ease-in', style({ opacity: 0 }))]),
-    ]),
-  ],
 })
 export class SignupComponent {
+  authService = inject(AuthService);
+  routerService = inject(Router);
+
+  name: string = '';
   email: string = '';
   password: string = '';
-  phoneNumber: string = '';
+  phone: string = '';
   role: string = 'admin';
   rememberMe: boolean = false;
-  formVisible: boolean = true;
 
   onSubmit() {
-    console.log('Form submitted', {
-      email: this.email,
-      password: this.password,
-      phoneNumber: this.phoneNumber,
-      role: this.role,
-      rememberMe: this.rememberMe,
-    });
+    if (this.name && this.email && this.password && this.phone) {
+      this.authService
+        .signup({
+          name: this.name,
+          email: this.email,
+          password: this.password,
+          phone: this.phone,
+          role: this.role,
+          rememberMe: this.rememberMe,
+        })
+        .subscribe({
+          next: (data) => {
+            console.log(data);
+            this.routerService.navigate(['/login']);
+          },
+          error: (err) => {
+            console.log(err);
+          },
+        });
+    }
   }
 }

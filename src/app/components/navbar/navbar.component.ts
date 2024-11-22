@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { GlobalesService } from '../../services/globales.service';
+import { AuthService } from '../../services/auth.service';
 
 export interface User {
   name: string;
@@ -38,22 +39,22 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   globalService = inject(GlobalesService);
   public isSidebarOpen = true;
-  // authService = inject(AuthService);
-  // router = inject(Router);
+  authService = inject(AuthService);
+  router = inject(Router);
 
   ngOnInit() {
     setTimeout(() => {
-      // this.checkLoginStatus();
-      // this.subscription = this.authService.isAuth$.subscribe((isAuth) => {
-      //   this.isLoggedIn = isAuth;
-      // });
-      // if (this.isLoggedIn) {
-      this.showNavbar = true;
-      this.globalService.sidebarOpen$.subscribe((state) => {
-        this.isSidebarOpen = state;
+      this.checkLoginStatus();
+      this.subscription = this.authService.isAuth$.subscribe((isAuth) => {
+        this.isLoggedIn = isAuth;
       });
-      // this.getUser();
-      // }
+      if (this.isLoggedIn) {
+        this.showNavbar = true;
+        this.globalService.sidebarOpen$.subscribe((state) => {
+          this.isSidebarOpen = state;
+        });
+        this.getUser();
+      }
     }, 0);
   }
 
@@ -85,24 +86,23 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   logout() {
-    // this.authService.signOut();
-    localStorage.removeItem('token');
+    this.authService.signOut();
     this.isOpen = false;
-    // this.router.navigate(['/login']);
+    this.router.navigate(['/login']);
   }
 
   // Fetch user data from the backend
-  // getUser() {
-  //   const token = localStorage.getItem('token');
-  //   if (token) {
-  //     this.subscription = this.authService.getUser().subscribe({
-  //       next: (data: User) => {
-  //         this.userData = data;
-  //       },
-  //       error: (err) => {
-  //         console.error('Error getting user!', err);
-  //       },
-  //     });
-  //   }
-  // }
+  getUser() {
+    const token = localStorage.getItem('token');
+    if (token) {
+      this.subscription = this.authService.getUser().subscribe({
+        next: (data: User) => {
+          this.userData = data;
+        },
+        error: (err) => {
+          console.error('Error getting user!', err);
+        },
+      });
+    }
+  }
 }

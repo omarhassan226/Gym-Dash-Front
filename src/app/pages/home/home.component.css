@@ -22,7 +22,9 @@ app-sidebar.closed {
 
 .toggleIcon {
   width: 100%;
-  color: black;
+  filter: invert(50%) sepia(100%) saturate(500%) hue-rotate(180deg);
+  padding: 0 10px;
+  width: 50px;
 }
 
 @media only screen and (max-width: 768px) {
