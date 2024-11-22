@@ -44,13 +44,27 @@ export class AuthService {
   }
 
   getUser(): Observable<User> {
-    const token = localStorage.getItem('token');
-    if (!token) {
+    if (!this.token) {
       return throwError(() => new Error('No token found'));
     }
-    console.log(token);
+    console.log(this.token);
 
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    const headers = new HttpHeaders().set(
+      'Authorization',
+      `Bearer ${this.token}`
+    );
     return this.http.get<User>(this.apiUrl + 'user', { headers });
+  }
+
+  getUsers(): Observable<User[]> {
+    if (!this.token) {
+      return throwError(() => new Error('No token found'));
+    }
+
+    const headers = new HttpHeaders().set(
+      'Authorization',
+      `Bearer ${this.token}`
+    );
+    return this.http.get<User[]>(this.apiUrl + 'users', { headers });
   }
 }

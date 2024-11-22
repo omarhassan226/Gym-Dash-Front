@@ -5,13 +5,17 @@ import { HomeComponent } from './pages/home/home.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { AuthGuard } from './guards/auth.guard';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { UsersPageComponent } from './pages/users-page/users-page.component';
 
 const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
     canActivate: [AuthGuard],
-    children: [{ path: 'dashboard', component: DashboardComponent }],
+    children: [
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'users', component: UsersPageComponent },
+    ],
   },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
