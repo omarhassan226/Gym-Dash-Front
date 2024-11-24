@@ -18,7 +18,8 @@ export class UsersPageComponent {
   global = inject(GlobalesService);
 
   isModalOpen!: boolean;
-
+  openEditModal: boolean = false;
+  selectUser: any = {};
   users: any = [];
 
   constructor() {}
@@ -32,6 +33,25 @@ export class UsersPageComponent {
     });
   }
 
+  onUserUpdated(updatedUser: any): void {
+    if (this.users && this.users.length > 0) {
+      const index = this.users.findIndex(
+        (user: any) => user._id === updatedUser._id
+      );
+      console.log('User Index:', index);
+      console.log(updatedUser._id);
+
+      if (index !== -1) {
+        this.users[index] = { ...updatedUser };
+        console.log('Updated User:', updatedUser);
+      } else {
+        console.error('User not found in users list:', updatedUser);
+      }
+    } else {
+      console.error('Users list is empty or undefined.');
+    }
+  }
+
   // show(user: User): void {
   //   this.global.show();
   //   console.log(user);
@@ -43,6 +63,13 @@ export class UsersPageComponent {
         console.log(data);
       },
     });
+  }
+
+  selectedUser(user: any) {
+    this.selectUser = { ...user }; // Create a copy to prevent accidental mutation
+    this.openEditModal = true;
+    console.log('Selected User:', this.selectUser);
+    return this.selectUser;
   }
 
   onUserDeleted(userId: string): void {
