@@ -1,8 +1,9 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { GlobalesService } from '../../services/globales.service';
 
 interface User {
-  // id: string;
+  _id: string;
   name: string;
   email: string;
 }
@@ -14,8 +15,11 @@ interface User {
 })
 export class UsersPageComponent {
   authService = inject(AuthService);
+  global = inject(GlobalesService);
 
-  users: User[] = [];
+  isModalOpen!: boolean;
+
+  users: any = [];
 
   constructor() {}
 
@@ -28,27 +32,20 @@ export class UsersPageComponent {
     });
   }
 
-  // addUser(): void {
-  //   // Logic to add a user (you can show a form to input user details)
-  //   const newUser: User = {
-  //     id: '4',
-  //     name: 'New User',
-  //     email: 'newuser@example.com',
-  //   };
-  //   this.users.push(newUser);
+  // show(user: User): void {
+  //   this.global.show();
+  //   console.log(user);
   // }
 
-  // editUser(id: string): void {
-  //   // Logic to edit the user (open a form or modify directly)
-  //   const user = this.users.find((u) => u.id === id);
-  //   if (user) {
-  //     user.name = prompt('Edit name:', user.name) || user.name;
-  //     user.email = prompt('Edit email:', user.email) || user.email;
-  //   }
-  // }
+  delete(id: string) {
+    this.authService.deleteUser(id).subscribe({
+      next: (data) => {
+        console.log(data);
+      },
+    });
+  }
 
-  // deleteUser(id: string): void {
-  //   // Logic to delete the user
-  //   this.users = this.users.filter((user) => user.id !== id);
-  // }
+  onUserDeleted(userId: string): void {
+    this.users = this.users.filter((user: any) => user._id !== userId);
+  }
 }

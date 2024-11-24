@@ -67,4 +67,43 @@ export class AuthService {
     );
     return this.http.get<User[]>(this.apiUrl + 'users', { headers });
   }
+
+  deleteUser(userId: string): Observable<any> {
+    if (!this.token) {
+      return throwError(() => new Error('No token found'));
+    }
+
+    const headers = new HttpHeaders().set(
+      'Authorization',
+      `Bearer ${this.token}`
+    );
+    console.log(userId);
+    return this.http.delete(`${this.apiUrl}delete-user/${userId}`, { headers });
+  }
+
+  addUser(data: any): Observable<any> {
+    if (!this.token) {
+      return throwError(() => new Error('No token found'));
+    }
+
+    const headers = new HttpHeaders().set(
+      'Authorization',
+      `Bearer ${this.token}`
+    );
+    return this.http.post(`${this.apiUrl}signup`, data, { headers });
+  }
+
+  updateUser(userId: string, data: any): Observable<any> {
+    if (!this.token) {
+      return throwError(() => new Error('No token found'));
+    }
+
+    const headers = new HttpHeaders().set(
+      'Authorization',
+      `Bearer ${this.token}`
+    );
+    return this.http.patch(`${this.apiUrl}update-user/${userId}`, data, {
+      headers,
+    });
+  }
 }

@@ -24,6 +24,13 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UsersPageComponent } from './pages/users-page/users-page.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { ConfirmationModelComponent } from './components/confirmation-model/confirmation-model.component';
+import { AddUserComponent } from './components/add-user/add-user.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
+import { MatCardModule } from '@angular/material/card';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +46,8 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     SignupComponent,
     UsersPageComponent,
     DashboardComponent,
+    ConfirmationModelComponent,
+    AddUserComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,6 +59,11 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     SidebarModule,
     ListViewModule,
     FormsModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatCardModule,
     HttpClientModule,
   ],
   providers: [],

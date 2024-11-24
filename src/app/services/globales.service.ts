@@ -7,6 +7,8 @@ import { BehaviorSubject } from 'rxjs';
 export class GlobalesService {
   constructor() {}
 
+  isVisible: boolean = false;
+
   private sidebarOpen = new BehaviorSubject<boolean>(true);
   public sidebarOpen$ = this.sidebarOpen.asObservable();
 
@@ -16,5 +18,13 @@ export class GlobalesService {
 
   setSidebarState(state: boolean): void {
     this.sidebarOpen.next(state);
+  }
+
+  show() {
+    this.isVisible = true;
+  }
+
+  close() {
+    this.isVisible = false;
   }
 }
